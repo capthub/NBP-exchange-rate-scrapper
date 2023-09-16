@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.AzureAD.UI;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +27,17 @@ namespace InsERT_Demo_HS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //// Add Azure AD authentication configuration
+            //services.Configure<AzureADOptions>(Configuration.GetSection("AzureAd"));
+
+            //// Add authentication services
+            //services.AddAuthentication(AzureADDefaults.AuthenticationScheme).AddAzureAD(options =>
+            //      {
+            //          // Bind Azure AD settings to options
+            //          Configuration.Bind("AzureAd", options); 
+
+            //    });
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddControllersWithViews();
         }
 
@@ -44,6 +59,8 @@ namespace InsERT_Demo_HS
 
             app.UseRouting();
 
+            //Add authentication middleware
+            app.UseAuthentication(); 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
