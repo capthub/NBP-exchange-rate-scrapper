@@ -17,18 +17,21 @@
             <div class="inner">
                 @*<div class="logo"><i class="icon fa-solid fa-dollar-sign"></i></div>*@
                 <div class="header-background"></div>
-                <h2>NBP exchange rate scrapper app.</h2>
-                <p>Using the <a href="http://api.nbp.pl/">api.nbp.pl</a> service</p>
-                <button id="btn-download">Download the latest Exchange Rates</button>
+                <h2 class="titlehs">Data Scrapper do kursów walut obcych NBP</h2>
+                <p>Przy użyciu serwisu <a href="http://api.nbp.pl/">api.nbp.pl</a></p>
             </div>
+            <div class="buttonDiv">
+                <button id="btn-download">Wyświetl i zapisz aktualne kursy walut</button>
+            </div>
+            <div id="exchangeRateContainer"></div>
         </section>
-
+        
 
 
         <!-- Footer -->
         <section id="footer">
             <div class="inner">
-                <h2 class="major">Contact</h2>
+                <h2 class="major">Kontakt</h2>
                 
                 <ul class="contact">
                     <li class="fa-address-book">(44) 77621 54985</li>
@@ -47,6 +50,7 @@
     <script src="~/js/breakpoints.min.js"></script>
     <script src="~/js/util.js"></script>
     <script src="~/js/main.js"></script>
+    <script src="~/js/exchangeRate.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<ExchangeModel>
+<div id="rateContent">
+    <h2>Kurs Walut</h2>
+
+    @foreach (var x in Model)
+    {
+        <h3>Tabela @x.table kursów średnich walut obcych z dnia @x.effectiveDate.ToString("dd/MM/yyyy")</h3>
+        <table>
+            <thead>
+                <tr>
+                    <td><b>Nazwa waluty</b></td>
+                    <td><b>Kod waluty</b></td>
+                    <td><b>Kurs średni</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var y in x.rates.Skip(1))
+                {
+                    <tr>
+                        <td>@y.currency</td>
+                        <td>@y.code</td>
+                        <td> @y.mid</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

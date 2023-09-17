@@ -32,8 +32,23 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+/*.titlehs {
+	font-size: xx-large;
+	font-weight: 600;
+	margin-bottom: 0px;
+}*/
+.buttonDiv{
+	text-align: center;
+}
+#btn-download {
+	margin-bottom: 15px;
+}
+#exchangeRateContainer{
+	display:contents;
+	height:100px;
+}
 .header-background {
-	height:150px;
+	height: 150px;
 	background-image: url("images/header-background.png");
 	background-size: cover; /* <------ */
 	background-repeat: no-repeat;
@@ -42,8 +57,8 @@ body {
 @media screen and (max-width: 736px) {
 	#btn-download {
 		padding: 0rem;
-		margin: -25px;
-		font-size:13px;
+		font-size: 13px;
+		margin-bottom: 15px;
 	}
 }
 
@@ -3323,10 +3338,10 @@ button,
 		padding: 1em 0 4.75em 0 ;
 	}
 
-		#banner .inner {
+/*		#banner .inner {
 			margin: 0 auto;
 			width: 55em;
-		}
+		}*/
 
 		#banner .logo {
 			-moz-transition: opacity 2s ease, -moz-transform 1s ease;

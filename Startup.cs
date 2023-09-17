@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.AzureAD.UI;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,23 +23,29 @@ namespace InsERT_Demo_HS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //// Add Azure AD authentication configuration
-            //services.Configure<AzureADOptions>(Configuration.GetSection("AzureAd"));
-
-            //// Add authentication services
-            //services.AddAuthentication(AzureADDefaults.AuthenticationScheme).AddAzureAD(options =>
-            //      {
-            //          // Bind Azure AD settings to options
-            //          Configuration.Bind("AzureAd", options); 
-
-            //    });
+            //RazonRuntimeCompilation for easier debugging
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            services.AddControllersWithViews();
+            //Making sure my app is configured to handle CORS for external domains, overriding the Same-Origin Policy.
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder =>
+                    {
+                        //Add my domain to the policy
+                        builder.WithOrigins("insertdemohs20230915211235.azurewebsites.net")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
+            });
+            services.AddControllersWithViews(); //Enable attribute routing
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -58,6 +60,9 @@ namespace InsERT_Demo_HS
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            //Use the specified CORS policy
+            app.UseCors("AllowSpecificOrigin");
 
             //Add authentication middleware
             app.UseAuthentication(); 
