@@ -32,20 +32,24 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-/*.titlehs {
-	font-size: xx-large;
-	font-weight: 600;
-	margin-bottom: 0px;
-}*/
-.buttonDiv{
+.fa-solid{
+	color:#40c73d;
+}
+.success {
+	color: #fbfbfb !important;
+	background-color: #42995a;
+}
+.buttonDiv {
 	text-align: center;
+	padding-bottom:15px;
+	font-size:18px;
 }
 #btn-download {
 	margin-bottom: 15px;
 }
-#exchangeRateContainer{
-	display:contents;
-	height:100px;
+#exchangeRateContainer {
+	display: contents;
+	height: 100px;
 }
 .header-background {
 	height: 150px;
@@ -57,7 +61,7 @@ body {
 @media screen and (max-width: 736px) {
 	#btn-download {
 		padding: 0rem;
-		font-size: 13px;
+		font-size: 12px;
 		margin-bottom: 15px;
 	}
 }
@@ -2931,10 +2935,10 @@ button,
 		button:disabled,
 		.button.disabled,
 		.button:disabled {
-			opacity: 0.25;
+			opacity: 0.7;
 		}
 
-		@media screen and (max-width: 480px) {
+/*		@media screen and (max-width: 480px) {
 
 			input[type="submit"],
 			input[type="reset"],
@@ -2944,7 +2948,7 @@ button,
 				padding: 0;
 			}
 
-		}
+		}*/
 
 /* Features */
 
@@ -3335,7 +3339,7 @@ button,
 /* Banner */
 
 	#banner {
-		padding: 1em 0 4.75em 0 ;
+		padding: 1em 0 3em 0 ;
 	}
 
 /*		#banner .inner {
@@ -3387,7 +3391,7 @@ button,
 			filter: blur(0);
 			opacity: 1;
 			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
-			font-size: 2.25em;
+			font-size: 1.6em;
 			margin-bottom: 0.8em;
 			padding-bottom: 0.4em;
 		}

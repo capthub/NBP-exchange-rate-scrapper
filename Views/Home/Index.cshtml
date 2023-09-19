@@ -15,13 +15,14 @@
         <!-- Banner -->
         <section id="banner">
             <div class="inner">
-                @*<div class="logo"><i class="icon fa-solid fa-dollar-sign"></i></div>*@
                 <div class="header-background"></div>
-                <h2 class="titlehs">Data Scrapper do kursów walut obcych NBP</h2>
+                <h2>Data Scrapper do kursów walut obcych NBP</h2>
                 <p>Przy użyciu serwisu <a href="http://api.nbp.pl/">api.nbp.pl</a></p>
             </div>
             <div class="buttonDiv">
-                <button id="btn-download">Wyświetl i zapisz aktualne kursy walut</button>
+                <button id="btn-download">Wyświetl aktualne kursy walut NBP</button>
+                <button disabled id="btn-save">Zapisz dane do bazy 
+                    <span class="mySpinner collapse spinner-border spinner-border-sm" style="margin-bottom: 3px;" role="status" aria-hidden="true"></span></button>
             </div>
             <div id="exchangeRateContainer"></div>
         </section>

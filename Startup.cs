@@ -15,7 +15,7 @@ namespace InsERT_Demo_HS
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration; // get access to configuration data
         }
 
         public IConfiguration Configuration { get; }
@@ -39,6 +39,7 @@ namespace InsERT_Demo_HS
             });
             services.AddControllersWithViews(); //Enable attribute routing
             services.AddHttpClient();
+            services.AddSingleton<IConfiguration>(Configuration); //register for dependency injection
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +74,10 @@ namespace InsERT_Demo_HS
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                //enable attribute routing
+                endpoints.MapControllers();
+
             });
         }
     }
